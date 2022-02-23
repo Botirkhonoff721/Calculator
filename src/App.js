@@ -1,9 +1,9 @@
 import './App.css';
-import Todolist from './TodoList/Todolist'
+import Todolist from './TodoList/TodoList';
 function App() {
   return (
     <div className="App">
-        <Todolist />
+      <Todolist />
     </div>
   );
 }

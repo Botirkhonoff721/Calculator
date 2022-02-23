@@ -1,53 +1,38 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  border: 1px solid #005646;
-  padding: 20px;
-  width: 40vw;
-  height: 70vh;
+  width: 400px;
+  height: 500px;
+  border: 1px solid gray;
+  border-radius: 15px;
   margin: auto;
-  margin-top: 50px;
-  background-color: aliceblue;
-  overflow-x: hidden;
-
+  background-image: url(https://th.bing.com/th/id/OIP._egghz_zzHM9VGlkzkJSFQHaFj?pid=ImgDet&rs=1);
+  background-position: center center;
+  background-position: center;
+  padding: 5px;
+  padding-top: 20px;
+  
 `;
 export const Title = styled.h1`
   margin: 0;
-  padding: 0;
-  
-  /* border: ${({color})=> color === 'true' && '1px solid black'}; */
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 15px;
+  color: gray;
 `;
+
 export const Input = styled.input`
-  width: 80%;
-  height: 30px;
-  font-size: 25px;
-  display: inline;
-`;
-export const Button = styled.button`
-width: 20%;
-  height: 35px;
-  display: inline;
-`;
-export const Wrapper = styled.div`
-    display: flex;
-    align-items: center;
-`;
-export const Wrapperxon = styled.div`
-   width: 100%;
-   height: 50px;
-   display: flex;
-   justify-content: space-between;
-   align-items:center;
-   flex-wrap: nowrap;
-   margin-top: 5px;
-   background-color: ${({color})=> color === false? 'coral': 'lightgreen'};
-`;
-export const Deletebutton = styled.button`
-   width: 20%;
-   height: 35px;
-   background-color: red;
+  width: 100%;
+  height: 50px;
+  outline: none;
+  background: transparent;
+  font-size: 32px;
+  padding-left: 10px;
+   color: #fff ;
    border: none;
-   outline: none;
-   color: #fff;
-   border-radius: 5px;
+`;
+export const Wrapper =styled.div`
+  display: flex;
+  border: 1px solid gray;
+  border-radius: 5px;
 `;

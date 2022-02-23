@@ -1,53 +1,33 @@
-import {
-  Container,
-  Input,
-  Title,
-  Button,
-  Wrapper,
-  Wrapperxon,
-  Deletebutton,
-} from "./style";
 import React, { useState } from "react";
+import { Container, Title, Input, Wrapper } from "./style";
+import GenericButton from "../GenericButton";
 const Todolist = () => {
-  const [count, setCount] = useState([]);
-  const [change, setChange] = useState("");
-  const [color, setColor] = useState(false);
-
+  const [value, setValue] = useState();
+  const onClick = () => {};
   const onChange = (e) => {
-    const product = {
-      id: count.length + 2,
-      name: e.target.value,
-    };
-    setChange(product);
+    e.preventDefault();
+    setValue(e.target.value);
   };
-  const onAdd = () => {
-    if (change.name.length > 0) {
-      setCount([...count, change], " ");
-    } else {
-      alert("pls fill the input");
-    }
-  };
-  const onClick = (id) => {
-    let res = count.filter((value) => value.id !== id);
-    setCount(res);
-  };
-  const colorChange=()=>{
-      setColor(!color)
-  }
   return (
-    <Container>
-      <Title>TODOS: {count.length}</Title>
-      <Wrapper>
-        <Input onChange={onChange} placeholder="name" />
-        <Button onClick={onAdd}>ADD</Button>
-      </Wrapper>
-      {count.map(({ id, name }) => (
-        <Wrapperxon onClick={colorChange} color={color} key={id}>
-          <Title color="true">{name} </Title>
-          <Deletebutton onClick={() => onClick(id)}>DELETE</Deletebutton>
-        </Wrapperxon>
-      ))}
-    </Container>
+    <>
+      <Title>TodoList</Title>
+      <Container>
+        <Wrapper>
+          <Input onChange={onChange} />
+          <GenericButton
+            bgc={"red"}
+            border
+            onClick={onClick}
+            ml={"20"}
+            width={"60"}
+            height={"50"}
+          >
+            Submit
+          </GenericButton>
+        </Wrapper>
+      </Container>
+    </>
   );
 };
+
 export default Todolist;
