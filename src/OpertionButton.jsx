@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { ACTIONS } from "./App";
 const OperationButton = ({ dispatch, operation }) => {
   return (
@@ -12,4 +12,4 @@ const OperationButton = ({ dispatch, operation }) => {
   );
 };
 
-export default OperationButton;
+export default memo(OperationButton);
