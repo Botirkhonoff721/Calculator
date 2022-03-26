@@ -17,23 +17,25 @@ function reducer(state, { type, payload }) {
       if (state.overwrite) {
         return {
           ...state,
-          currentOperand: payload.digit,
+          currentOperand:  payload.digit,
           overwrite: false,
         };
       }
       if (payload.digit === "0" && state.currentOperand === "0") {
         return state;
       }
+      console.log(payload.digit);
       if (payload.digit === "." && state.currentOperand == null) {
         return state;
       }
       if (payload.digit === "." && state.currentOperand.includes(".")) {
         return state;
       }
-      return {
-        ...state,
-        currentOperand: ` ${state.currentOperand || ""} ${payload.digit}`,
-      };
+          return {
+            ...state,
+            currentOperand: ` ${state.currentOperand || "" }${payload.digit}`,
+          };
+        
     case ACTIONS.CHOOSE_OPERATION:
       if (state.currentOperand == null && state.previousOperand == null) {
         return state;
@@ -113,7 +115,7 @@ function evaluate({ currentOperand, previousOperand, operation }) {
       break;
     default:
   }
-  return computation;
+  return computation.toString();
 }
 
 const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
@@ -125,7 +127,6 @@ function formatOperand(operand) {
   if (decimal == null) return INTEGER_FORMATTER.format(integer);
   return ` ${INTEGER_FORMATTER.format(integer)}.${decimal}`;
 }
-console.log();
 function App() {
   const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
     reducer,
@@ -150,13 +151,11 @@ function App() {
         DEL
       </button>
       <OperationButton operation="/" dispatch={dispatch} />
-
       <DigitButton digit="1" dispatch={dispatch} />
       <DigitButton digit="2" dispatch={dispatch} />
       <DigitButton digit="3" dispatch={dispatch} />
       <OperationButton operation="*" dispatch={dispatch} />
       <DigitButton digit="4" dispatch={dispatch} />
-
       <DigitButton digit="5" dispatch={dispatch} />
       <DigitButton digit="6" dispatch={dispatch} />
       <OperationButton operation="+" dispatch={dispatch} />
