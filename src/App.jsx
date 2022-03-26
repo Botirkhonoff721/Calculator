@@ -24,7 +24,6 @@ function reducer(state, { type, payload }) {
       if (payload.digit === "0" && state.currentOperand === "0") {
         return state;
       }
-      console.log(payload.digit);
       if (payload.digit === "." && state.currentOperand == null) {
         return state;
       }
@@ -95,7 +94,6 @@ function reducer(state, { type, payload }) {
 function evaluate({ currentOperand, previousOperand, operation }) {
   let prev = parseFloat(previousOperand);
   let current = parseFloat(currentOperand);
-  console.log(prev, "prev", current, "current");
   if (isNaN(prev) || isNaN(current)) {
     return "";
   }

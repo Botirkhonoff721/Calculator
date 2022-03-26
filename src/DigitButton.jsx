@@ -1,4 +1,3 @@
-import React,{useEffect} from "react";
 import { ACTIONS } from "./App";
 
 export default function DigitButton({ dispatch, digit }) {
